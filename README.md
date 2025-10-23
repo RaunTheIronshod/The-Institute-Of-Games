@@ -2,6 +2,16 @@ Intro
 ------
 This website is a demonstrable Javascript project in games engine coding by Berren Stonechild and Chanel Clarke. The project's scope is to produce two arcade games as portfolio work that will be deployed onto a webpage through Github's pages feature.
 
+## Table of Contents
+- [Project Outline](#project-outline)
+- [User Stories](#user-stories)
+- [UX Design](#ux-design)
+- [Features](#features)
+- [Deployment](#deployment)
+- [AI Implementation](#ai-implementation)
+- [Testing and Validation](#testing-and-validation)
+- [References](#references)
+
 User Stories
 --------
 The user stories were produced to aid with the coding design of the games and websites main page. They were tailored toward gameplay and basic user page navigation as game production within javascript was the main focus, the overall page layout would be minimalistic
@@ -16,9 +26,11 @@ Features
 --------
 Lazer Fighter
 --------
-Lazer fighter is a baseline project that is intended for future production, producing a game slice focused on player movement and basic side view shooter mechanics. 
+Lazer fighter is a baseline project that is intended for future production, producing a game slice focused on player movement and basic side view shooter mechanics. The game features a wave system for enemy spawning as well as multiple enemy types, player powerup system with a variety of powerups, a player health and combat system in the form of projectiles, and a score and high score feature
 
-The game features a wave system for enemy spawning as well as multiple enemy types, player powerup system with a variety of powerups, a player health and combat system in the form of projectiles, and a score and high score feature
+The use of AI in this product is mainly to aid with feature implementation and code cleanup, lengthy elements of code review and block context implementation using Windsurf for in-IDE implementation and chatGPT for more complex development. Consistent re-writes where required to avoid bad code practices and poor structure, though even with this fact the production speed was undeniably faster in the long run
+
+Windsurf initially produced messy code and required some amount of prompting with technical specifics to produce something closer to industry standard, it had a habit of ignoring the text bulk and trying to solve the problem with a single method or function, contrastingly chatGPT was able to absorb the entire filecode and analyse it before responding, though it habitually forgot what it was trying to do when another prompt was passed, it would show slight deviation in naming conventions which required cleanup. 
 
 Space Invaders
 ----------
@@ -32,9 +44,7 @@ AI Implementation
 ------------
 Lazer Fighter
 -----------
-The use of AI in this product is mainly to aid with feature implementation and code cleanup, lengthy elements of code review and block context implementation using Windsurf for in-IDE implementation and chatGPT for more complex development. Consistent re-writes where required to avoid bad code practices and poor structure, though even with this fact the production speed was undeniably faster in the long run
-
-Windsurf initially produced messy code and required some amount of prompting with technical specifics to produce something closer to industry standard, it had a habit of ignoring the text bulk and trying to solve the problem with a single method or function, contrastingly chatGPT was able to absorb the entire filecode and analyse it before responding, though it habitually forgot what it was trying to do when another prompt was passed, it would show slight deviation in naming conventions which required cleanup. 
+Rudimentary AI is engaged with two enemy types, homing enemies and normal enemies. Though this is the case the enemy uses a state machine prepared to scale the project for future development. Normal enemies just move directly accross the screen to destroy the players wall while the homing enemies where brought in to address an issue with less wall pieces meaning fewer enemies targeting the players wall. I decided to engage the homing factor when part way across the games canvas to help them blend in with normal enemies and be more of a threat
 
 Space Invaders
 ------------
@@ -49,5 +59,6 @@ Testing and Validation
 
 References
 --------
+
 
 
