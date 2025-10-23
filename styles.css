@@ -1,0 +1,279 @@
+/* GENERAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Exo", sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* PANEL STYLING */
+.panel {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 3;
+}
+
+/* BACKGROUND ANIMATIONS */
+.stars,
+.twinkling,
+.clouds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+}
+
+.stars {
+    background: #000 url(../stars.png) repeat top center;
+    z-index: 0;
+}
+
+.twinkling {
+    background: transparent url(../twinkling.png) repeat top center;
+    z-index: 1;
+    animation: move-twink-back 200s linear infinite;
+}
+
+.clouds {
+    background: transparent url(../clouds.png) repeat top center;
+    z-index: 2;
+    opacity: 0.4;
+    animation: move-clouds-back 200s linear infinite;
+}
+
+/* ==== PLATFORM FLOOR ==== */
+.platform {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25vh; /* adjust height if needed */
+    background: url(../stage1.svg) no-repeat center bottom;
+    background-size: cover;
+    z-index: 10; /* slightly above clouds, below main content */
+    pointer-events: none;
+    opacity: 1;
+}
+
+@keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@keyframes move-clouds-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+/* TITLE */
+#home h1 {
+    font-size: 4rem;
+    font-family: "Pixelify Sans", sans-serif;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    color: white;
+    background: -webkit-linear-gradient(#eee, #b60fb3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 6px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* CARDS */
+.card {
+    z-index: 5;
+    color: #eee;
+    background-color: rgba(45, 0, 85, 0.7);
+}
+
+.btn-primary {
+    background-color: #00ffff;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: azure;
+    color: #333;
+}
+
+/* ==== FLOATING CARD LAYOUT ==== */
+.games-heading {
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 2rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 3rem;
+    text-shadow: 0 0 15px rgba(173, 0, 255, 0.7);
+    animation: pulseGlow 3s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    from {
+        text-shadow: 0 0 10px #b60fb3, 0 0 20px #b60fb3;
+    }
+    to {
+        text-shadow: 0 0 25px #00fff0, 0 0 40px #00fff0;
+    }
+}
+
+.game-cards-container {
+    gap: 4rem;
+    perspective: 1000px;
+    flex-wrap: wrap;
+}
+
+.game-card {
+    width: 22rem;
+    background-color: rgba(45, 0, 85, 0.7);
+    color: #eee;
+    border: 2px solid rgba(0, 255, 255, 0.4);
+    border-radius: 1rem;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease,
+        border-color 0.4s ease;
+    transform-style: preserve-3d;
+}
+
+.game-card:hover {
+    transform: translateY(-20px) rotateY(5deg) rotateX(2deg);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+    border-color: rgba(0, 255, 255, 0.8);
+}
+
+.game-card img {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.game-card .card-body {
+    background: rgba(0, 0, 0, 0.4);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.btn-primary {
+    background-color: #00fff0;
+    border: none;
+    color: #333;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #b60fb3;
+    color: white;
+    box-shadow: 0 0 15px #b60fb3;
+}
+
+/* ABOUT SECTION */
+#about h2 {
+    font-family: "Pixelify Sans", sans-serif;
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#about p {
+    color: #ddd;
+    line-height: 1.6;
+}
+
+/* NAVBAR */
+.navbar {
+    background: #e8e8e8 !important; /* classic silver */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    z-index: 1000;
+}
+
+.navbar-brand,
+.nav-link {
+    color: #000 !important;
+    font-weight: 600;
+}
+
+.navbar-brand:hover,
+.nav-link:hover {
+    color: #000 !important;
+    text-shadow: 0 0 6px rgba(0, 255, 240, 0.3);
+}
+
+/* ==== SCROLLABLE BACKGROUND STAGES ==== */
+.scroll-bg {
+    width: 100%;
+    height: 25vh; /* same height as platform */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    margin: 0;
+    z-index: 2;
+}
+
+/* Specific stage images 
+#stage2 {
+  background-image: url('assets/stage1-02.svg');
+}
+
+#stage3 {
+  background-image: url('assets/stage1-03.svg');
+}*/
+
+/* subtle floating animation */
+@keyframes floatBg {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.scroll-bg {
+    animation: floatBg 10s ease-in-out infinite;
+}
+
+/* MUSIC TOGGLE ICON */
+.music-icon {
+    position: fixed;
+    top: 4rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #00fff0;
+    text-shadow: 0 0 10px #00fff0, 0 0 20px #b60fb3, 0 0 30px #00fff0;
+    z-index: 1001;
+    transition: transform 0.2s, text-shadow 0.3s;
+}
+
+.music-icon:hover {
+    transform: scale(1.3) rotate(15deg);
+    text-shadow: 0 0 20px #00fff0, 0 0 30px #b60fb3, 0 0 40px #00fff0;
+}
